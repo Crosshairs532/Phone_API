@@ -8,7 +8,15 @@ const display = phones => {
     // clear container before adding new things;
     div_container.textContent = '';
     // if i want to see 5 phones among 15 or more phone 
-    phones = phones.slice(0, 5);
+    const show_button = document.getElementById('show_button');
+    if (phones.length > 6) {
+        show_button.classList.remove('hidden');
+
+    }
+    else {
+        show_button.classList.add("hidden");
+    }
+    phones = phones.slice(0, 12);
     phones.forEach(phone => {
         console.log(phone);
         const div = document.createElement('div');
