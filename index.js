@@ -7,6 +7,8 @@ const display = phones => {
     const div_container = document.getElementById('phone_container');
     // clear container before adding new things;
     div_container.textContent = '';
+    // if i want to see 5 phones among 15 or more phone 
+    phones = phones.slice(0, 5);
     phones.forEach(phone => {
         console.log(phone);
         const div = document.createElement('div');
