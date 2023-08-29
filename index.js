@@ -1,22 +1,30 @@
-const load = async (input_text) => {
+const load = async (input_text, showall) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${input_text}`);
     const data = await res.json();
-    display(data.data);
+    display(data.data, showall);
 }
-const display = phones => {
+const show = () => {
+    clicked(true);
+}
+const display = (phones, showall) => {
     const div_container = document.getElementById('phone_container');
     // clear container before adding new things;
     div_container.textContent = '';
     // if i want to see 5 phones among 15 or more phone 
     const show_button = document.getElementById('show_button');
-    if (phones.length > 6) {
-        show_button.classList.remove('hidden');
 
+    if (phones.length > 12 && !showall) {
+        show_button.classList.remove('hidden');
     }
     else {
         show_button.classList.add("hidden");
     }
-    phones = phones.slice(0, 12);
+    if (!showall) {
+        phones = phones.slice(0, 12);
+    }
+    // else {
+    //  phones
+    // }
     phones.forEach(phone => {
         console.log(phone);
         const div = document.createElement('div');
@@ -34,11 +42,10 @@ const display = phones => {
     })
     load_spinner(false);
 }
-const clicked = () => {
+const clicked = (showall) => {
     load_spinner(true);
     const input_text = document.getElementById('search').value;
-
-    load(input_text);
+    load(input_text, showall);
 }
 const load_spinner = (isloading) => {
     const spin = document.getElementById('spinners');
@@ -49,3 +56,4 @@ const load_spinner = (isloading) => {
         spin.classList.add('hidden');
     }
 }
+
