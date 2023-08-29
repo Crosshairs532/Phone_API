@@ -50,7 +50,7 @@ const showdetails = async (id) => {
 }
 const showalldetails = (data) => {
     const div_container = document.getElementById('show_container');
-    // console.log();
+    console.log(data.data);
     // div_container.innerHTML = ``;
     document.getElementById('detail_name').innerText = `${data.data.name}`;
     // const div_container = document.getElementById('show_container');
@@ -60,6 +60,7 @@ const showalldetails = (data) => {
     <p>Display Size: ${data.data.mainFeatures.displaySize}</p>
     <p>chipset: ${data.data.mainFeatures.chipSet}</p>
     <p>Memory: ${data.data.mainFeatures.memory}</p>
+    <p>GPS: ${data.data.others?.gps || 'not available'}</p>
     <p>Secsors: ${data.data.mainFeatures.sensors}</p>`
 
     my_modal_2.showModal();
