@@ -21,11 +21,26 @@
         <section id="spinners" class="text-white text-6xl text-center mt-52 hidden">
             <span class="loading loading-infinity loading-lg"></span>
         </section>
+        <!-- Open the modal using ID.showModal() method -->
+
+        <dialog id="my_modal_2" class="modal">
+            <form method="dialog" class="modal-box">
+
+                <h3 id="detail_name" class="font-bold text-lg"></h3>
+                <p class="py-4">It is a long established fact that a reader will be distracted by the readable content
+                    of a page when looking at its layout.</p>
+                <div id="show_container" class=""></div>
+
+            </form>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>
         <section>
             <div id="phone_container" class="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             </div>
-            <div id="show_button" class="hidden">
-                <button onclick="show()" class="btn btn-info">Info</button>
+            <div id="show_button" class="hidden text-center my-10">
+                <button onclick="show()" class="btn btn-info ">Info</button>
             </div>
         </section>
     </main>
