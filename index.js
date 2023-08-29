@@ -32,9 +32,20 @@ const display = phones => {
             </div > `;
         div_container.appendChild(div)
     })
+    load_spinner(false);
 }
 const clicked = () => {
+    load_spinner(true);
     const input_text = document.getElementById('search').value;
+
     load(input_text);
 }
-
+const load_spinner = (isloading) => {
+    const spin = document.getElementById('spinners');
+    if (isloading) {
+        spin.classList.remove('hidden');
+    }
+    else {
+        spin.classList.add('hidden');
+    }
+}
